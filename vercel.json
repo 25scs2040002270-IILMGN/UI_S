@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm --filter @workspace/college-portal run build",
+  "outputDirectory": "artifacts/college-portal/dist/public",
+  "installCommand": "pnpm install",
+  "framework": null
+}

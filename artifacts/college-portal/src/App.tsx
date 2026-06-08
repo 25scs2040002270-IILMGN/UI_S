@@ -33,6 +33,13 @@ function QuizArenaLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
+const QuizArenaPage = () => <QuizArenaLayout><QuizDashboard /></QuizArenaLayout>;
+const CodingQuestionsPage = () => <QuizArenaLayout><CodingQuestions /></QuizArenaLayout>;
+const MathQuestionsPage = () => <QuizArenaLayout><MathQuestions /></QuizArenaLayout>;
+const LeaderboardPage = () => <QuizArenaLayout><Leaderboard /></QuizArenaLayout>;
+const CertificatesPage = () => <QuizArenaLayout><Certificates /></QuizArenaLayout>;
+const AnalyticsPage = () => <QuizArenaLayout><Analytics /></QuizArenaLayout>;
+
 function Router() {
   return (
     <AnimatePresence mode="wait">
@@ -40,16 +47,15 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/founders" component={Founders} />
         <Route path="/student-of-the-year" component={StudentOfTheYear} />
-        
-        {/* Quiz Arena Routes */}
-        <Route path="/quiz-arena" render={() => <QuizArenaLayout><QuizDashboard /></QuizArenaLayout>} />
-        <Route path="/quiz-arena/coding" render={() => <QuizArenaLayout><CodingQuestions /></QuizArenaLayout>} />
-        <Route path="/quiz-arena/coding/:id" render={() => <CodingWorkspace />} /> {/* Full screen workspace, no sidebar */}
-        <Route path="/quiz-arena/math" render={() => <QuizArenaLayout><MathQuestions /></QuizArenaLayout>} />
-        <Route path="/quiz-arena/leaderboard" render={() => <QuizArenaLayout><Leaderboard /></QuizArenaLayout>} />
-        <Route path="/quiz-arena/certificates" render={() => <QuizArenaLayout><Certificates /></QuizArenaLayout>} />
-        <Route path="/quiz-arena/analytics" render={() => <QuizArenaLayout><Analytics /></QuizArenaLayout>} />
-        
+
+        <Route path="/quiz-arena" component={QuizArenaPage} />
+        <Route path="/quiz-arena/coding" component={CodingQuestionsPage} />
+        <Route path="/quiz-arena/coding/:id" component={CodingWorkspace} />
+        <Route path="/quiz-arena/math" component={MathQuestionsPage} />
+        <Route path="/quiz-arena/leaderboard" component={LeaderboardPage} />
+        <Route path="/quiz-arena/certificates" component={CertificatesPage} />
+        <Route path="/quiz-arena/analytics" component={AnalyticsPage} />
+
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
