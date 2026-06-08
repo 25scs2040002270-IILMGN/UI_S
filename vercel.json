@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm --filter @workspace/college-portal run build",
-  "outputDirectory": "artifacts/college-portal/dist",
+  "buildCommand": "pnpm --filter @workspace/college-portal run build && cp -r artifacts/college-portal/dist dist-vercel",
+  "outputDirectory": "dist-vercel",
   "installCommand": "pnpm install",
   "framework": null
 }
