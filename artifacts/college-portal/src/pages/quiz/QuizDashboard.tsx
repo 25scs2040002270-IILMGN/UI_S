@@ -1,17 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Code2, Sigma, Flame, CheckCircle2, ArrowRight, PlayCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { analyticsData } from "@/data/mockData";
 
 export default function QuizDashboard() {
   const latestData = analyticsData[analyticsData.length - 1];
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }} 
-      exit={{ opacity: 0, y: -20 }} 
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
       className="p-6 lg:p-10 max-w-6xl mx-auto"
     >
       <div className="mb-10">
@@ -20,43 +19,43 @@ export default function QuizDashboard() {
       </div>
 
       <div className="grid md:grid-cols-4 gap-6 mb-12">
-        <div className="p-6 rounded-2xl bg-card border border-white/10 shadow-sm flex flex-col justify-between">
+        <div className="p-6 rounded-2xl bg-card border border-border shadow-sm flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <span className="text-muted-foreground font-medium">Problems Solved</span>
             <CheckCircle2 className="w-5 h-5 text-emerald-500" />
           </div>
-          <div className="text-4xl font-bold text-white">142</div>
+          <div className="text-4xl font-bold text-foreground" data-testid="stat-problems-solved">142</div>
         </div>
-        <div className="p-6 rounded-2xl bg-card border border-white/10 shadow-sm flex flex-col justify-between">
+        <div className="p-6 rounded-2xl bg-card border border-border shadow-sm flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <span className="text-muted-foreground font-medium">Math Score</span>
             <Sigma className="w-5 h-5 text-cyan-500" />
           </div>
-          <div className="text-4xl font-bold text-white">{latestData.mathAccuracy}%</div>
+          <div className="text-4xl font-bold text-foreground" data-testid="stat-math-score">{latestData.mathAccuracy}%</div>
         </div>
-        <div className="p-6 rounded-2xl bg-card border border-white/10 shadow-sm flex flex-col justify-between">
+        <div className="p-6 rounded-2xl bg-card border border-border shadow-sm flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <span className="text-muted-foreground font-medium">Coding Score</span>
             <Code2 className="w-5 h-5 text-purple-500" />
           </div>
-          <div className="text-4xl font-bold text-white">{latestData.codingAccuracy}%</div>
+          <div className="text-4xl font-bold text-foreground" data-testid="stat-coding-score">{latestData.codingAccuracy}%</div>
         </div>
         <div className="p-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-orange-500/30 shadow-sm flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-orange-200 font-medium">Current Streak</span>
+            <span className="text-orange-600 dark:text-orange-200 font-medium">Current Streak</span>
             <Flame className="w-5 h-5 text-orange-500" />
           </div>
-          <div className="text-4xl font-bold text-orange-500">12 Days</div>
+          <div className="text-4xl font-bold text-orange-500" data-testid="stat-streak">12 Days</div>
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <Link href="/quiz-arena/coding">
-          <div className="group cursor-pointer p-8 rounded-3xl bg-card border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300">
+          <div className="group cursor-pointer p-8 rounded-3xl bg-card border border-border hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300" data-testid="link-coding-challenges">
             <div className="w-14 h-14 rounded-2xl bg-blue-500/20 text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Code2 className="w-7 h-7" />
             </div>
-            <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">Coding Challenges</h2>
+            <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-500 transition-colors">Coding Challenges</h2>
             <p className="text-muted-foreground mb-8">
               Data Structures, Algorithms, and System Design problems to prepare you for top tech interviews.
             </p>
@@ -67,11 +66,11 @@ export default function QuizDashboard() {
         </Link>
 
         <Link href="/quiz-arena/math">
-          <div className="group cursor-pointer p-8 rounded-3xl bg-card border border-white/10 hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all duration-300">
+          <div className="group cursor-pointer p-8 rounded-3xl bg-card border border-border hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all duration-300" data-testid="link-math-questions">
             <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Sigma className="w-7 h-7" />
             </div>
-            <h2 className="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">Mathematics</h2>
+            <h2 className="text-2xl font-bold mb-3 group-hover:text-cyan-500 transition-colors">Mathematics</h2>
             <p className="text-muted-foreground mb-8">
               Calculus, Probability, and Discrete Mathematics to strengthen your analytical foundation.
             </p>
@@ -90,13 +89,13 @@ export default function QuizDashboard() {
             { title: "Eigenvalues and Eigenvectors", type: "Math", time: "Yesterday", status: "Attempted" },
             { title: "Spring Boot Authentication", type: "Coding", time: "3 days ago", status: "Solved" }
           ].map((activity, idx) => (
-            <div key={idx} className="flex items-center justify-between p-4 rounded-xl bg-card border border-white/5">
+            <div key={idx} data-testid={`activity-item-${idx}`} className="flex items-center justify-between p-4 rounded-xl bg-card border border-border">
               <div className="flex items-center gap-4">
                 <div className={`p-2 rounded-lg ${activity.type === 'Coding' ? 'bg-blue-500/20 text-blue-500' : 'bg-cyan-500/20 text-cyan-500'}`}>
                   <PlayCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">{activity.title}</h4>
+                  <h4 className="font-semibold text-foreground">{activity.title}</h4>
                   <p className="text-sm text-muted-foreground">{activity.type} • {activity.time}</p>
                 </div>
               </div>

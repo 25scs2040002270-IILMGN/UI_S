@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { LayoutDashboard, Code2, Sigma, History, Trophy, Award, Menu } from "lucide-react";
+import { LayoutDashboard, Code2, Sigma, Trophy, Award, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +15,7 @@ export function QuizSidebar() {
   const [location] = useLocation();
 
   const SidebarContent = () => (
-    <div className="flex flex-col gap-2 p-4">
+    <div className="flex flex-col gap-1 p-4">
       {sidebarLinks.map((link) => {
         const Icon = link.icon;
         const isActive = link.exact
@@ -26,13 +26,14 @@ export function QuizSidebar() {
           <Link
             key={link.href}
             href={link.href}
+            data-testid={`link-sidebar-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
             className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${
               isActive
-                ? "bg-blue-500/10 text-blue-500 shadow-[inset_2px_0_0_0_rgba(59,130,246,1)]"
-                : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                ? "bg-blue-500/10 text-blue-600 dark:text-blue-400 shadow-[inset_2px_0_0_0_theme(colors.blue.500)]"
+                : "text-muted-foreground hover:bg-muted hover:text-foreground"
             }`}
           >
-            <Icon className="w-5 h-5" />
+            <Icon className="w-5 h-5 shrink-0" />
             {link.label}
           </Link>
         );
@@ -42,20 +43,20 @@ export function QuizSidebar() {
 
   return (
     <>
-      <aside className="hidden lg:block w-64 border-r border-white/5 bg-background h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
+      <aside className="hidden lg:block w-64 border-r border-border bg-background h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto">
         <SidebarContent />
       </aside>
 
       <div className="lg:hidden fixed bottom-6 right-6 z-50">
         <Sheet>
           <SheetTrigger asChild>
-            <Button size="icon" className="w-14 h-14 rounded-full shadow-2xl bg-blue-600 hover:bg-blue-700">
+            <Button size="icon" className="w-14 h-14 rounded-full shadow-2xl bg-blue-600 hover:bg-blue-700 text-white" data-testid="button-mobile-sidebar">
               <Menu className="w-6 h-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-72 bg-background border-r border-white/10 p-0">
-            <div className="h-16 flex items-center px-6 border-b border-white/5">
-              <span className="font-bold text-lg">Arena Menu</span>
+          <SheetContent side="left" className="w-72 border-r border-border p-0">
+            <div className="h-16 flex items-center px-6 border-b border-border">
+              <span className="font-bold text-lg text-foreground">Arena Menu</span>
             </div>
             <SidebarContent />
           </SheetContent>

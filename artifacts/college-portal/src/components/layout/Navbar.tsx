@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { useTheme } from "next-themes";
-import { Bell, Search, Sun, Moon, Menu, X } from "lucide-react";
+import { Bell, Search, Sun, Moon, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -21,10 +21,10 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group" data-testid="link-logo">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white shadow-lg group-hover:shadow-blue-500/25 transition-shadow">
               <SiCodecademy className="w-5 h-5" />
             </div>
@@ -38,9 +38,10 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/5 hover:text-foreground ${
+                data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-foreground ${
                   location === link.href || (link.href !== "/" && location.startsWith(link.href))
-                    ? "bg-white/10 text-foreground"
+                    ? "bg-muted text-foreground"
                     : "text-muted-foreground"
                 }`}
               >
@@ -56,11 +57,12 @@ export function Navbar() {
             <Input
               type="search"
               placeholder="Search..."
-              className="w-full bg-secondary/20 border-white/10 pl-9 focus-visible:ring-blue-500/50"
+              data-testid="input-search-navbar"
+              className="w-full pl-9 focus-visible:ring-blue-500/50"
             />
           </div>
 
-          <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground">
+          <Button variant="ghost" size="icon" className="relative text-muted-foreground hover:text-foreground" data-testid="button-notifications">
             <Bell className="w-5 h-5" />
             <span className="absolute top-2 right-2 w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
           </Button>
@@ -70,12 +72,13 @@ export function Navbar() {
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="text-muted-foreground hover:text-foreground"
+            data-testid="button-theme-toggle"
           >
             <Sun className="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
 
-          <Avatar className="w-9 h-9 border border-white/10">
+          <Avatar className="w-9 h-9 border border-border" data-testid="img-avatar">
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>ST</AvatarFallback>
           </Avatar>
@@ -86,25 +89,27 @@ export function Navbar() {
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            data-testid="button-theme-toggle-mobile"
           >
             <Sun className="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           </Button>
-          
+
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-background border-white/10">
+            <SheetContent side="right" className="w-80 border-border">
               <div className="flex flex-col gap-6 mt-8">
                 {links.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-blue-400 ${
+                    data-testid={`link-mobile-nav-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`text-lg font-medium transition-colors hover:text-blue-500 ${
                       location === link.href || (link.href !== "/" && location.startsWith(link.href))
                         ? "text-blue-500"
                         : "text-muted-foreground"
