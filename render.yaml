@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: collegehub-portal
+    runtime: static
+    buildCommand: pnpm install && pnpm --filter @workspace/college-portal run build
+    staticPublishPath: artifacts/college-portal/dist
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
