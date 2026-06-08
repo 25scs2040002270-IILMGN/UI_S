@@ -1,0 +1,371 @@
+Build a Premium College Student Portal UI (Production-Level)
+
+Act as a Senior Product Designer and Frontend Architect with 15+ years of experience designing enterprise SaaS platforms.
+
+Design a modern, premium, production-ready College Student Portal UI that feels like a combination of Apple, Notion, Linear, and Stripe.
+
+The design should NOT look like a beginner project or a simple college website. It should look like a real-world platform that could be deployed in a university.
+
+Technology Expectations
+
+- React + Next.js
+- Tailwind CSS
+- TypeScript
+- Framer Motion animations
+- Fully Responsive
+- Dark Mode and Light Mode
+- Accessibility Compliant (WCAG)
+- Clean Component Architecture
+
+---
+
+Overall Design Theme
+
+Create a futuristic education platform with:
+
+- Glassmorphism effects
+- Soft shadows
+- Modern gradients
+- Smooth page transitions
+- Premium typography
+- Professional dashboard layout
+- Animated cards
+- Interactive charts
+- Mobile-first responsiveness
+
+Color Palette:
+
+Primary:
+
+- #2563EB
+- #3B82F6
+
+Secondary:
+
+- #06B6D4
+
+Accent:
+
+- #8B5CF6
+
+Background:
+
+- White / Dark Slate
+
+Use subtle gradients and micro-interactions.
+
+---
+
+Navigation Structure
+
+Top Navigation Bar
+
+Logo: CollegeHub
+
+Menu Items:
+
+1. Home
+2. Founders
+3. Student of the Year
+4. Quiz Arena
+
+Right Side:
+
+- Notification Bell
+- Search Bar
+- User Profile Avatar
+- Dark/Light Toggle
+
+Navbar should become a hamburger menu on mobile.
+
+---
+
+SECTION 1: HOME PAGE
+
+Create an impressive landing dashboard.
+
+Hero Section:
+
+- Large welcome message
+- Dynamic background animation
+- College statistics cards
+
+Display:
+
+- Total Students
+- Placement Rate
+- Active Courses
+- Quiz Participation
+
+Add animated counters.
+
+Below Hero:
+
+Feature Cards
+
+- Smart Learning
+- Coding Challenges
+- Mathematics Practice
+- Student Achievements
+- Leaderboards
+- Events
+
+Hover animations required.
+
+---
+
+SECTION 2: FOUNDERS PAGE
+
+Premium Founder Showcase.
+
+Layout:
+
+Large Founder Cards
+
+Each card contains:
+
+- Professional photo
+- Name
+- Designation
+- Biography
+- LinkedIn Button
+- Email Button
+
+Add:
+
+- Timeline of college growth
+- Vision and Mission section
+- Animated achievements counter
+
+Use elegant card transitions.
+
+---
+
+SECTION 3: STUDENT OF THE YEAR
+
+Create a Hall of Fame experience.
+
+Top Banner:
+
+"Celebrating Excellence"
+
+Features:
+
+- Student Profile Card
+- Achievement Score
+- CGPA
+- Coding Rank
+- Competition Wins
+- Research Contributions
+
+Include:
+
+Year Selector:
+
+- 2026
+- 2025
+- 2024
+- 2023
+
+Leaderboard Section:
+
+Top 10 Students
+
+Columns:
+
+- Rank
+- Name
+- Branch
+- CGPA
+- Achievements
+
+Add trophy icons and animations.
+
+Include search and filtering.
+
+---
+
+SECTION 4: QUIZ ARENA
+
+This is the most important section.
+
+Create a competitive coding and mathematics platform.
+
+Layout:
+
+Left Sidebar:
+
+- Dashboard
+- Coding Questions
+- Mathematics Questions
+- Attempt History
+- Rankings
+- Certificates
+
+Main Content Area:
+
+Premium dashboard cards.
+
+---
+
+CODING QUESTION SECTION
+
+Display:
+
+- Difficulty Filters
+  - Easy
+  - Medium
+  - Hard
+
+Categories:
+
+- DSA
+- Java
+- Python
+- DBMS
+- OS
+- Web Development
+
+Question Card Includes:
+
+- Title
+- Difficulty Badge
+- Tags
+- Time Estimate
+- Solve Button
+
+When clicked:
+
+Open Coding Workspace
+
+Features:
+
+- Monaco Code Editor
+- Language Selector
+- Run Button
+- Submit Button
+- Test Cases Panel
+- Console Output
+- Progress Tracker
+
+Show acceptance percentage.
+
+---
+
+MATHEMATICS SECTION
+
+Categories:
+
+- Algebra
+- Calculus
+- Probability
+- Statistics
+- Discrete Mathematics
+- Aptitude
+
+Question Layout:
+
+- Problem Statement
+- Formula Helper
+- Hint Button
+- Solution Button
+- Timer
+
+Progress Bar:
+
+Track completion percentage.
+
+---
+
+LEADERBOARD SYSTEM
+
+Global Rankings
+
+Columns:
+
+- Rank
+- Student Name
+- Total Points
+- Coding Score
+- Math Score
+- Streak
+
+Include:
+
+- Gold
+- Silver
+- Bronze badges
+
+Real-time ranking animation.
+
+---
+
+CERTIFICATE SYSTEM
+
+Students earn certificates when:
+
+- Completing quizzes
+- Winning contests
+- Achieving milestones
+
+Display certificate cards.
+
+Allow download button.
+
+---
+
+ANALYTICS DASHBOARD
+
+Student Performance Dashboard
+
+Charts:
+
+- Weekly Progress
+- Coding Accuracy
+- Math Accuracy
+- Quiz Attempts
+- Time Spent Learning
+
+Use beautiful interactive charts.
+
+---
+
+ANIMATIONS
+
+Use Framer Motion.
+
+Add:
+
+- Page transitions
+- Hover effects
+- Scroll animations
+- Loading skeletons
+- Animated counters
+- Card elevation effects
+
+No excessive animation.
+
+Keep premium and smooth.
+
+---
+
+RESPONSIVE DESIGN
+
+Desktop
+Tablet
+Mobile
+
+Every section must be fully responsive.
+
+---
+
+UX REQUIREMENTS
+
+- Fast loading
+- Clean spacing
+- Modern UI hierarchy
+- Accessible navigation
+- Production-ready component structure
+- Real-world SaaS quality
+
+Generate complete UI with reusable React components, realistic dummy data, modern layouts, and enterprise-grade design patterns.
